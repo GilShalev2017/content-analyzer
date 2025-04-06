@@ -42,8 +42,6 @@ import { WebsocketService } from './services/websocket.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
