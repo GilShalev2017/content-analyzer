@@ -14,12 +14,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { ContentInputComponent } from './content-input/content-input.component';
 import { ResultsDisplayComponent } from './results-display/results-display.component';
 import { ContentTrendsChartComponent } from './content-trends-chart/content-trends-chart.component';
 import { ContentCategoriesChartComponent } from './content-categories-chart/content-categories-chart.component';
+import { ContentModerationTableComponent } from './content-moderation-table/content-moderation-table.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -41,7 +45,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     ContentInputComponent,
     ResultsDisplayComponent,
     ContentTrendsChartComponent,
-    ContentCategoriesChartComponent
+    ContentCategoriesChartComponent,
+    ContentModerationTableComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatFormFieldModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatTableModule,
     
     HighchartsChartModule,
     
