@@ -26,6 +26,7 @@ import { ContentTrendsChartComponent } from './content-trends-chart/content-tren
 import { ContentCategoriesChartComponent } from './content-categories-chart/content-categories-chart.component';
 import { ContentModerationTableComponent } from './content-moderation-table/content-moderation-table.component';
 import { AiRulesComponent } from './ai-rules/ai-rules.component';
+import { AiPerformanceComponent } from './ai-performance/ai-performance.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -42,6 +43,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     ContentTrendsChartComponent,
     ContentCategoriesChartComponent,
     ContentModerationTableComponent,
-    AiRulesComponent
+    AiRulesComponent,
+    AiPerformanceComponent,
   ],
   imports: [
     BrowserModule,

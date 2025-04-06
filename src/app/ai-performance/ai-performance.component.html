@@ -1,0 +1,67 @@
+<div class="card">
+    <div class="card-header">
+      <div class="header-content">
+        <h3 class="card-title">AI Performance</h3>
+        <span class="update-time">Updated 5 min ago</span>
+      </div>
+    </div>
+  
+    <div class="card-content">
+      <div class="metrics" *ngIf="isLoading; else metricsContent">
+        <ng-container *ngFor="let item of [1,2,3,4]">
+          <div class="metric-skeleton">
+            <div class="metric-header">
+              <div class="skeleton skeleton-sm w-24"></div>
+              <div class="skeleton skeleton-sm w-12"></div>
+            </div>
+            <div class="skeleton skeleton-rounded h-2 w-full"></div>
+          </div>
+        </ng-container>
+      </div>
+  
+      <ng-template #metricsContent>
+        <div class="metrics">
+          <div *ngFor="let metric of performanceMetrics" class="metric">
+            <div class="metric-header">
+              <span class="metric-name">{{ metric.name }}</span>
+              <span class="metric-value">{{ metric.value }}{{ metric.suffix || '%' }}</span>
+            </div>
+            <div class="metric-bar bg-gray-200">
+              <div
+                class="bar-fill"
+                [ngClass]="metric.color"
+                [style.width.%]="metric.percentage || metric.value"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+  
+      <div class="model-updates mt-6 pt-4 border-t border-gray-200">
+        <h4 class="updates-title">Recent Model Updates</h4>
+  
+        <div *ngIf="isLoading; else updatesContent" class="space-y-3">
+          <div *ngFor="let item of [1,2,3]" class="update-skeleton">
+            <div class="bullet skeleton w-2 h-2 rounded-full"></div>
+            <div class="skeleton-text">
+              <div class="skeleton w-full h-4 mb-1"></div>
+              <div class="skeleton w-16 h-3"></div>
+            </div>
+          </div>
+        </div>
+  
+        <ng-template #updatesContent>
+          <div class="updates-list space-y-3">
+            <div *ngFor="let update of modelUpdates" class="update-item">
+              <span class="dot bg-success-500"></span>
+              <div class="update-text">
+                <p class="text-sm text-gray-900">{{ update.text }}</p>
+                <p class="text-xs text-gray-500">{{ update.date }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
