@@ -18,6 +18,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppComponent } from './app.component';
 import { ContentInputComponent } from './content-input/content-input.component';
 import { ResultsDisplayComponent } from './results-display/results-display.component';
+import { ContentTrendsChartComponent } from './content-trends-chart/content-trends-chart.component';
+import { ContentCategoriesChartComponent } from './content-categories-chart/content-categories-chart.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -30,11 +32,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContentService } from './services/content.service';
 import { WebsocketService } from './services/websocket.service';
 
+import { HighchartsChartModule } from 'highcharts-angular';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ContentInputComponent,
-    ResultsDisplayComponent
+    ResultsDisplayComponent,
+    ContentTrendsChartComponent,
+    ContentCategoriesChartComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,8 @@ import { WebsocketService } from './services/websocket.service';
     MatFormFieldModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    
+    HighchartsChartModule,
     
     StoreModule.forRoot({ results: contentReducer }),
     EffectsModule.forRoot([AppEffects]),

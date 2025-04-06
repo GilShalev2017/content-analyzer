@@ -36,44 +36,6 @@
 
       <!-- Row 1: 4 equal-width cards -->
 
-      <!-- <div class="card-row">
-
-        <mat-card class="card stat-card">
-          <div class="card-header">
-            <span class="card-title">Total Content</span>
-            <span class="card-change positive">+12.5%</span>
-          </div>
-          <div class="card-main-value">1,748</div>
-          <div class="card-subtext">
-            Today: <strong>1,253</strong>
-          </div>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon>article</mat-icon>
-          <h3>Total Content</h3>
-          <p>{{ contentStats?.totalContent || '-' }}</p>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon>report_problem</mat-icon>
-          <h3>Flagged Content</h3>
-          <p>{{ contentStats?.flaggedContent || '-' }}</p>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon>insights</mat-icon>
-          <h3>AI Confidence</h3>
-          <p>{{ contentStats?.aiConfidence || '-' }}</p>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon>timer</mat-icon>
-          <h3>Avg. Response Time</h3>
-          <p>{{ contentStats?.avgResponseTime || '-' }}</p>
-        </mat-card>
-      </div> -->
-
       <div class="card-row">
         <mat-card class="card stat-card">
           <div class="card-header">
@@ -122,13 +84,13 @@
 
       <!-- Row 2: 75% / 25% -->
       <div class="card-row split-75-25">
+
         <mat-card class="card wide">
-          <mat-icon>bar_chart</mat-icon>
-          <h3>Content Volume & Flags</h3>
+          <app-content-trends-chart></app-content-trends-chart>
         </mat-card>
+
         <mat-card class="card narrow">
-          <mat-icon>category</mat-icon>
-          <h3>Content Categories</h3>
+          <app-content-categories-chart></app-content-categories-chart>
         </mat-card>
       </div>
 
