@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { ContentInputComponent } from './content-input/content-input.component';
@@ -24,6 +25,7 @@ import { ResultsDisplayComponent } from './results-display/results-display.compo
 import { ContentTrendsChartComponent } from './content-trends-chart/content-trends-chart.component';
 import { ContentCategoriesChartComponent } from './content-categories-chart/content-categories-chart.component';
 import { ContentModerationTableComponent } from './content-moderation-table/content-moderation-table.component';
+import { AiRulesComponent } from './ai-rules/ai-rules.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -39,6 +41,7 @@ import { WebsocketService } from './services/websocket.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +49,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     ResultsDisplayComponent,
     ContentTrendsChartComponent,
     ContentCategoriesChartComponent,
-    ContentModerationTableComponent
+    ContentModerationTableComponent,
+    AiRulesComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatSelectModule,
     MatPaginatorModule,
     MatTableModule,
-    
+    MatDialogModule,
+
     HighchartsChartModule,
     
     StoreModule.forRoot({ results: contentReducer }),

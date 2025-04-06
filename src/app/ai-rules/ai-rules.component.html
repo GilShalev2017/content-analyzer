@@ -1,0 +1,86 @@
+<mat-card-header>
+    <div class="flex items-center justify-between">
+        <mat-card-title>AI Moderation Rules</mat-card-title>
+        <button mat-raised-button color="primary" (click)="openAddRuleDialog()">
+            <mat-icon>add</mat-icon> Add Rule
+        </button>
+    </div>
+</mat-card-header>
+
+<mat-card-content>
+    <div *ngIf="isLoading; else ruleList">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-template #ruleList>
+        <div *ngFor="let rule of rules" class="rule-card">
+            <mat-card class="rule">
+                <mat-card-header>
+                    <div mat-card-avatar class="icon-container">
+                        <mat-icon>{{ getIconForCategory(rule.category) }}</mat-icon>
+                    </div>
+                    <mat-card-title>{{ rule.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ rule.description }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div [ngClass]="getCategoryColor(rule.category)">
+                        <span>{{ rule.active ? 'Active' : 'Inactive' }}</span>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-button (click)="toggleRuleActive(rule.id, rule.active)">
+                        {{ rule.active ? 'Deactivate' : 'Activate' }}
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </ng-template>
+</mat-card-content>
+
+<!-- 
+<mat-dialog *ngIf="isAddRuleOpen" (backdropClick)="closeAddRuleDialog()">
+    <form [formGroup]="newRuleForm" (ngSubmit)="createRule()">
+        <h2>Create New Moderation Rule</h2>
+
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let category of ContentCategories" [value]="category">
+                    {{ category }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-slider formControlName="sensitivity" min="0" max="100" step="1"></mat-slider>
+
+        <mat-form-field>
+            <mat-label>Auto Action</mat-label>
+            <mat-select formControlName="autoAction">
+                <mat-option *ngFor="let action of AutoActions" [value]="action">
+                    {{ action }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+
+        <div mat-dialog-actions>
+            <button mat-button type="button" (click)="closeAddRuleDialog()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="isCreating">
+                {{ isCreating ? 'Creating...' : 'Create Rule' }}
+            </button>
+        </div>
+    </form>
+</mat-dialog> -->

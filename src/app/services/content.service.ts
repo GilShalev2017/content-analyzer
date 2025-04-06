@@ -27,6 +27,19 @@ export class ContentService {
       avgResponseTime: '2.4s'
     }).pipe(delay(1500));
   }
+
+  listRules(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  createRule(rule: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, rule);
+  }
+
+  updateRule(id: number, updates: any): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/${id}`, updates);
+  }
+  
   // extractTechCompanies(url: string) {
   //   const headers = new HttpHeaders({
   //     Authorization: `Bearer ${this.token}`,

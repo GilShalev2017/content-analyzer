@@ -18,7 +18,9 @@ export const ContentCategories = {
     HARASSMENT: 'harassment',
     EXPLICIT: 'explicit',
     SAFE: 'safe',
-    TECH_COMPANY: 'TECH_COMPANY'
+    TECH_COMPANY: 'TECH_COMPANY',
+    VIOLENCE : 'violence',
+    ADULT_CONTENT: 'adult_content'
 };
 
 export const ContentStatuses = {
